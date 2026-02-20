@@ -6,8 +6,9 @@ def copy_file(command: str) -> None:
         old_file, new_file = parts[1], parts[2]
         if parts[1] != parts[2]:
             try:
-                with open(old_file, "r") as new, open(new_file, "w") as old:
-                    for line in new:
-                        old.write(line)
+                with open(old_file, "r") as sourse_file:
+                    with open(new_file, "w") as dest_file:
+                        for line in sourse_file:
+                            dest_file.write(line)
             except (FileNotFoundError):
                 pass
